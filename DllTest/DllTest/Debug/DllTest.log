@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  dllmain.cpp
+  DllTest.cpp
+     正在创建库 D:\cpp_projects\DllTest\Debug\DllTest.lib 和对象 D:\cpp_projects\DllTest\Debug\DllTest.exp
+  DllTest.vcxproj -> D:\cpp_projects\DllTest\Debug\DllTest.dll
