@@ -8,13 +8,24 @@
 #include <sstream>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
+ 
+#include <log4cplus/logger.h>
+#include <log4cplus/consoleappender.h>
+#include <log4cplus/layout.h>
+#include <log4cplus/fileappender.h>
+#include <log4cplus/loggingmacros.h>
+#include <log4cplus/initializer.h>
 
+using namespace log4cplus;
+using namespace log4cplus::helpers;
 
 using namespace boost::property_tree;
 using namespace boost::gregorian;
 using namespace boost;
 using namespace std;
 #include <map>
+#include <vector>
+
 void mythread()
 {
 	int i = 0;
@@ -123,7 +134,7 @@ typedef struct tagStudentinfo
 }Studentinfo, *PStudentinfo; //学生信息 
 void test_map4()
 {
-	int  nSize;//用学生信息映射分数
+	
 	map<Studentinfo, int>mapStudent;
 	map<Studentinfo, int>::iterator iter;
 	Studentinfo studentinfo;
@@ -166,6 +177,41 @@ void test_map5()
 	mapStudent.clear();
 }
 
+void printMsgs(void)
+
+{
+	 
+
+}
+void test_log4cplus()
+{
+	///* step 1: Instantiate an appender object */
+	//SharedAppenderPtr _append(new ConsoleAppender());
+	//_append->setName("append test");
+	///* step 4: Instantiate a logger object */
+	//Logger _logger = Logger::getInstance("test");
+	///* step 5: Attach the appender object to the logger  */
+	//_logger.addAppender(_append);
+	///* log activity */
+	//LOG4CPLUS_DEBUG(_logger, "This is the FIRST log message...");
+	//LOG4CPLUS_WARN(_logger, "This is the SECOND log message...");
+}
+class student {
+public:
+	student() {};
+		int age;
+};
+void test_vector()
+{
+	vector<int> str;
+	for (int  i = 0; i < 10; i++)
+	{
+		str.push_back(i);
+		cout << i << endl;
+	}
+
+}
+
 
 int main()
 {
@@ -175,7 +221,8 @@ int main()
 	//test_map2();
 	//test_map3();
 	//test_map4();
-	test_map5();
+	//test_map5();
+	test_vector();
 	return 0;
 }
 
