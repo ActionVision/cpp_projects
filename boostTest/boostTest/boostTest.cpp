@@ -13,9 +13,8 @@
 using namespace boost::property_tree;
 using namespace boost::gregorian;
 using namespace boost;
-
-
 using namespace std;
+#include <map>
 void mythread()
 {
 	int i = 0;
@@ -47,13 +46,28 @@ void test_json()
 		vecStr.push_back(stra);
 	}
 }
+void test_map()
+{
+	map<int, string> mapStudent;
+	mapStudent.insert(pair<int, string>(1, "student1"));
+	mapStudent.insert(pair<int, string>(2, "student2"));
+	mapStudent.insert(pair<int, string>(3, "student3"));
+	mapStudent.insert(pair<int, string>(4, "student4"));
+	mapStudent.insert(pair<int, string>(5, "student5"));
 
+	map<int, string>::iterator iter;
+	for (iter = mapStudent.begin();iter != mapStudent.end();iter++)
+	{
+		cout << iter->first << "" << iter->second << endl;
+
+	}
+}
 
 int main()
 {
 	//test_thread();
-	test_json();
-	
+	//test_json();
+	test_map();
 	return 0;
 }
 
