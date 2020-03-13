@@ -1,9 +1,21 @@
-﻿生成启动时间为 2020/3/12 12:00:43。
+﻿生成启动时间为 2020/3/12 23:36:30。
      1>项目“D:\07-gitProject\cpp_projects\boostTest\boostTest\boostTest.vcxproj”在节点 2 上(Build 个目标)。
-     1>Link:
-         boostTest.vcxproj -> D:\07-gitProject\cpp_projects\boostTest\x64\Debug\boostTest.exe
-     1>已完成生成项目“D:\07-gitProject\cpp_projects\boostTest\boostTest\boostTest.vcxproj”(Build 个目标)的操作。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt boostTest.cpp
+         boostTest.cpp
+     1>d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(69): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(87): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(106): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(163): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(174): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(190): error C2664: “void log4cplus::Appender::setName(const log4cplus::tstring &)”: 无法将参数 1 从“const char [12]”转换为“const log4cplus::tstring &”
+         d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(190): note: 原因如下: 无法从“const char [12]”转换为“const log4cplus::tstring”
+         d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(190): note: 无构造函数可以接受源类型，或构造函数重载决策不明确
+     1>d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(192): error C2665: “log4cplus::Logger::getInstance”: 2 个重载中没有一个可以转换所有参数类型
+         d:\software\34-log4cplus\log4cplus-2.0.1\include\log4cplus\logger.h(107): note: 可能是“log4cplus::Logger log4cplus::Logger::getInstance(const log4cplus::tstring &)”
+         d:\07-gitproject\cpp_projects\boosttest\boosttest\boosttest.cpp(192): note: 尝试匹配参数列表“(const char [5])”时
+     1>已完成生成项目“D:\07-gitProject\cpp_projects\boostTest\boostTest\boostTest.vcxproj”(Build 个目标)的操作 - 失败。
 
-已成功生成。
+生成失败。
 
-已用时间 00:00:00.15
+已用时间 00:00:02.46

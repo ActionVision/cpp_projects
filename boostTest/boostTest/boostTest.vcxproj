@@ -29,7 +29,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -71,13 +71,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\software\32-boost\boost_1_69_0;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\software\32-boost\boost_1_69_0\vc14-x32\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\software\32-boost\boost_1_69_0;D:\software\34-log4cplus\log4cplus-2.0.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\software\32-boost\boost_1_69_0\vc14-x32\lib;D:\software\34-log4cplus\build\src\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\software\32-boost\boost_1_69_0;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\software\32-boost\boost_1_69_0\vc14-x64\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\software\32-boost\boost_1_69_0;D:\software\34-log4cplus\log4cplus-2.0.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\software\32-boost\boost_1_69_0\vc14-x64\lib;D:\software\34-log4cplus\build\src\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -93,10 +93,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\software\34-log4cplus\log4cplus-2.0.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>log4cplusUD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\software\34-log4cplus\build\src\Debug</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -111,6 +114,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\software\34-log4cplus\build\src\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>log4cplusUD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
