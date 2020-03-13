@@ -11,7 +11,7 @@ using namespace std;
 
 static const uint32_t c_countOfImageToGrab = 100;
 
-int main()
+void test_Grab()
 {
 	int exitCode = 0;
 	//初始化操作
@@ -50,12 +50,18 @@ int main()
 	}
 	catch (const GenericException &e)//异常处理
 	{
-		cout << "\nerror happened:" << e.GetDescription()<< endl;
+		cout << "\nerror happened:" << e.GetDescription() << endl;
 		exitCode = 1;
 	}
 	//释放资源
 	PylonTerminate();
 
+}
+
+
+int main()
+{
+	test_Grab();
 
     return 0;
 }
