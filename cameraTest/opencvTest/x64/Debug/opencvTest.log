@@ -1,11 +1,11 @@
-﻿生成启动时间为 2020/3/14 23:36:14。
+﻿生成启动时间为 2020/3/15 10:43:02。
      1>项目“D:\07-gitProject\cpp_projects\cameraTest\opencvTest\opencvTest.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt opencvTest.cpp
          opencvTest.cpp
      1>d:\07-gitproject\cpp_projects\cameratest\opencvtest\opencvtest.cpp(78): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-     1>d:\07-gitproject\cpp_projects\cameratest\opencvtest\opencvtest.cpp(138): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
-     1>d:\07-gitproject\cpp_projects\cameratest\opencvtest\opencvtest.cpp(139): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+     1>d:\07-gitproject\cpp_projects\cameratest\opencvtest\opencvtest.cpp(150): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+     1>d:\07-gitproject\cpp_projects\cameratest\opencvtest\opencvtest.cpp(151): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\07-gitProject\cpp_projects\cameraTest\x64\Debug\opencvTest.exe" /INCREMENTAL /NOLOGO opencv_world401d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\07-gitProject\cpp_projects\cameraTest\x64\Debug\opencvTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\07-gitProject\cpp_projects\cameraTest\x64\Debug\opencvTest.lib" /MACHINE:X64 x64\Debug\opencvTest.obj
          x64\Debug\stdafx.obj
@@ -14,4 +14,4 @@
 
 已成功生成。
 
-已用时间 00:00:03.47
+已用时间 00:00:05.19

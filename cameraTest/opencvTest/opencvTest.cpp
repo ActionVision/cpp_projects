@@ -130,9 +130,21 @@ void test_color_detect()
 	 // 轮廓发现
     vector<vector<Point>> contours;
 	vector<Vec4i> hiearchy;
+	RotatedRect resultRect;
 	findContours(mask, contours, hiearchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 	for (int i = 0; i < contours.size(); i++) {
-	 // 圆拟合
+		//最小外接矩形
+		resultRect = minAreaRect(contours[i]);//获取轮廓的最小外接矩形		
+		Point2f pt[4];
+		resultRect.points(pt);//获取最小外接矩形的四个顶点坐标
+							  //绘制最小外接矩形
+		line(image, pt[0], pt[1], Scalar(255, 0, 0), 2, 8);
+		line(image, pt[1], pt[2], Scalar(255, 0, 0), 2, 8);
+		line(image, pt[2], pt[3], Scalar(255, 0, 0), 2, 8);
+		line(image, pt[3], pt[0], Scalar(255, 0, 0), 2, 8);
+	
+		
+		// 圆拟合
 	    RotatedRect rrt = fitEllipse(contours[i]);
 	   Point ct = rrt.center;
 	   int h = rrt.size.height;
@@ -144,11 +156,160 @@ void test_color_detect()
 	imshow("result", image);
     waitKey(0);
 }
+
+void test_blur()
+{
+	Mat src;
+	src = imread("药丸.jpg", 0);
+	Mat dst;
+	int dis = 30;
+	dst = src(Rect(dis, dis, src.cols-dis, src.rows-dis));//通过构造函数的方法设定ROI
+	blur(dst, dst, Size(3, 3), Point(0, 0), 4);
+	namedWindow("src", WINDOW_GUI_NORMAL);
+	imshow("src", src);
+	namedWindow("dst", WINDOW_GUI_NORMAL);
+	imshow("dst", dst);
+	waitKey(0);
+}
+
+int test_coutour_area()
+{
+	Mat srcImage = imread("modules_08.png");
+	imshow("【原图】", srcImage);
+
+	//首先对图像进行空间的转换 ?
+	Mat grayImage;
+	cvtColor(srcImage, grayImage, COLOR_BGR2GRAY);
+	//对灰度图进行滤波 ?
+	GaussianBlur(grayImage, grayImage, Size(3, 3), 0, 0);
+	imshow("【滤波后的图像】", grayImage);
+
+	//为了得到二值图像，对灰度图进行边缘检测 ?
+	Mat cannyImage;
+	Canny(grayImage, cannyImage, 128, 255, 3);
+	//在得到的二值图像中寻找轮廓 ?
+	vector<vector<Point>> contours;
+	vector<Vec4i> hierarchy;
+	findContours(cannyImage, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+
+
+	//绘制轮廓 ?
+	for (int i = 0; i < (int)contours.size(); i++)
+	{
+		drawContours(cannyImage, contours, i, Scalar(255), 1, 8);
+	}
+	imshow("【处理后的图像】", cannyImage);
+
+
+	//计算轮廓的面积 ?
+	cout << "【筛选前总共轮廓个数为】：" << (int)contours.size() << endl;
+	for (int i = 0; i < (int)contours.size(); i++)
+	{
+		double g_dConArea = contourArea(contours[i], true);
+		cout << "【用轮廓面积计算函数计算出来的第" << i << "个轮廓的面积为：】" << g_dConArea << endl;
+	}
+
+	//筛选剔除掉面积小于100的轮廓
+	vector <vector<Point>>::iterator iter = contours.begin();
+	for (; iter != contours.end();)
+	{
+		double g_dConArea = contourArea(*iter);
+		if (g_dConArea < 100)
+		{
+			iter = contours.erase(iter);
+		}
+		else
+		{
+			++iter;
+		}
+	}
+	cout << "【筛选后总共轮廓个数为：" << (int)contours.size() << endl;
+	for (int i = 0; i < (int)contours.size(); i++)
+	{
+		double g_dConArea = contourArea(contours[i], true);
+		cout << "【用轮廓面积计算函数计算出来的第" << i << "个轮廓的面积为：】" << g_dConArea << endl;
+	}
+	Mat result(srcImage.size(), CV_8U, Scalar(0));
+	drawContours(result, contours, -1, Scalar(255), 1);  
+	namedWindow("result");
+	imshow("result", result);
+	waitKey(0);
+	return 0;
+
+}
+
+void test_filter()
+{
+	Mat src, blurMat;
+	src = imread("morph.png", 1);
+	cvtColor(src, src, COLOR_BGR2GRAY);
+	namedWindow("src", WINDOW_NORMAL);
+	imshow("src", src);
+
+	blur(src, blurMat, Size(5, 5), Point(-1, -1), 4);
+	imshow("blurMat", blurMat);
+
+	Mat blurXMat;
+	blur(src, blurXMat, Size(30, 1), Point(-1, -1), 4);//X方向模糊，
+	imshow("blurXMat", blurXMat);
+
+	Mat blurYMat;
+	blur(src, blurYMat, Size(1, 30), Point(-1, -1), 4);//X方向模糊，
+	imshow("blurYMat", blurYMat);
+
+	Mat gaussMat;
+	GaussianBlur(src, gaussMat, Size(5, 5), 0, 0, 4);
+	imshow("gaussMat", gaussMat);
+	
+	Mat medianMat;
+	medianBlur(src, medianMat, 5);
+	imshow("medianMat", medianMat);
+	
+	Mat	  bilaterlMat;
+	bilateralFilter(src, bilaterlMat, 15, 120, 10, 4);
+	imshow("bilaterlMat", bilaterlMat);
+
+
+	int ksize = 15;
+	Mat kernel = Mat::ones(ksize, ksize, CV_32F) / (float)(ksize*ksize);
+	Mat filterMat;
+	filter2D(src, filterMat, -1, kernel, Point(-1, -1), 0.0, 4);
+	imshow("filterMat", filterMat);
+
+	//图像的边缘提取
+	Mat filterMatContours;
+	Mat kernel1 = (Mat_<char>(3, 3) << -1, -1, -1, -1, 8, -1, -1, -1, -1);
+	filter2D(src, filterMatContours, -1, kernel1, Point(-1, -1), 0.0, 4);
+	imshow("filterMatContours", filterMatContours);
+
+	//图像的锐化
+	Mat filterMat1;
+	Mat kernel2 = (Mat_<char>(3, 3) << -1, -1, -1, -1, 9, -1, -1, -1, -1);
+	filter2D(src, filterMat1, -1, kernel2, Point(-1, -1), 0.0, 4);
+	imshow("filterMat1", filterMat1);
+
+	//robot算子
+	Mat filterMat2;
+	Mat kernel3 = (Mat_<char>(2, 2) << -1, 0, 0, 1);
+	filter2D(src, filterMat2, -1, kernel3, Point(-1, -1), 0.0, 4);
+	imshow("filterMat2", filterMat2);
+
+	Mat filterMat4;
+	Mat kernel4 = (Mat_<char>(3, 3) << 1, 2, 1, 0, 0, 0, -1, -2, -1);
+	filter2D(src, filterMat4, -1, kernel4, Point(-1, -1), 0.0, 4);
+	imshow("filterMat4", filterMat4);
+	waitKey(0);
+}
+
+
 int main()
 {
 	//test_faceDetect();
-	test_blob();
+	//test_blob();
 	//test_color_detect();
+	//test_blur();
+	//test_coutour_area();
+	test_filter();
 	return 0;
 }
 
