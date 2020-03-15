@@ -2,7 +2,6 @@
 #include <vector>
 #include "uEye.h"
 #include "opencv2/opencv.hpp"
-#include "eventthread.h"
 #include "uEye_tools.h"
 
 #define MAXCAMERA 4 
@@ -58,10 +57,7 @@ public:
 	//
 	bool OpenCameraforLoadPara();
 	bool LoadParameter();
-	void RecordVideo();
-	void stopVideo();
-	void Record();
-
+	
 	bool isGetCameraList();
 	bool saveParametertoCamera();
 	bool LoadParameterFromCamera();
@@ -70,9 +66,7 @@ public:
 	bool GetCurrentExposure(double &currentExposure);
 	int numSelect;
 	HIDS    m_hCam;
-	EventThread *m_pEvFrame;
-	EventThread *m_pEvRemove;
-	EventThread *m_pEvTrigger ;
+	
 	HWND	m_hWndDisplay ;	// handle to diplay window
 	INT		m_lMemoryId ;	// grabber memory - buffer ID
 	char*	m_ImageMemory ;  // grabber memory - pointer to buffer
