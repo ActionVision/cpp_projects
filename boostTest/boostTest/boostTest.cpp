@@ -8,16 +8,6 @@
 #include <sstream>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
- 
-#include <log4cplus/logger.h>
-#include <log4cplus/consoleappender.h>
-#include <log4cplus/layout.h>
-#include <log4cplus/fileappender.h>
-#include <log4cplus/loggingmacros.h>
-#include <log4cplus/initializer.h>
-
-using namespace log4cplus;
-using namespace log4cplus::helpers;
 
 using namespace boost::property_tree;
 using namespace boost::gregorian;
@@ -183,19 +173,7 @@ void printMsgs(void)
 	 
 
 }
-void test_log4cplus()
-{
-	///* step 1: Instantiate an appender object */
-	//SharedAppenderPtr _append(new ConsoleAppender());
-	//_append->setName("append test");
-	///* step 4: Instantiate a logger object */
-	//Logger _logger = Logger::getInstance("test");
-	///* step 5: Attach the appender object to the logger  */
-	//_logger.addAppender(_append);
-	///* log activity */
-	//LOG4CPLUS_DEBUG(_logger, "This is the FIRST log message...");
-	//LOG4CPLUS_WARN(_logger, "This is the SECOND log message...");
-}
+
 class student {
 public:
 	student() {};

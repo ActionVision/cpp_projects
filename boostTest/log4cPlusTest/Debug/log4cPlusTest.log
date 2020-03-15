@@ -1,0 +1,19 @@
+﻿生成启动时间为 2020/3/14 17:03:20。
+     1>项目“D:\07-gitProject\cpp_projects\boostTest\log4cPlusTest\log4cPlusTest.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"D:\software\34-log4cplus\log4cplus-2.0.1\include" /I"D:\software\34-log4cplus\log4cplus-2.0.1\include\log4cplus" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D LOG4CPLUS_BUILD_DLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt log4cPlusTest.cpp stdafx.cpp
+         stdafx.cpp
+         log4cPlusTest.cpp
+         正在生成代码...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\07-gitProject\cpp_projects\boostTest\Debug\log4cPlusTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\software\34-log4cplus\buildX86\src\Debug" log4cplusUD.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\07-gitProject\cpp_projects\boostTest\Debug\log4cPlusTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\07-gitProject\cpp_projects\boostTest\Debug\log4cPlusTest.lib" /MACHINE:X86 Debug\log4cPlusTest.obj
+         Debug\stdafx.obj
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static class log4cplus::Logger __cdecl log4cplus::Logger::getInstance(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (__imp_?getInstance@Logger@log4cplus@@SA?AV12@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) class std::basic_ostringstream<char,struct std::char_traits<char>,class std::allocator<char> > & __cdecl log4cplus::detail::get_macro_body_oss(void)" (__imp_?get_macro_body_oss@detail@log4cplus@@YAAAV?$basic_ostringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) void __cdecl log4cplus::detail::macro_forced_log(class log4cplus::Logger const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,char const *,int,char const *)" (__imp_?macro_forced_log@detail@log4cplus@@YAXABVLogger@2@HABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBDH2@Z)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>D:\07-gitProject\cpp_projects\boostTest\Debug\log4cPlusTest.exe : fatal error LNK1120: 3 个无法解析的外部命令
+     1>已完成生成项目“D:\07-gitProject\cpp_projects\boostTest\log4cPlusTest\log4cPlusTest.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:03.31

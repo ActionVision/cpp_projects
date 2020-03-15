@@ -1,0 +1,21 @@
+﻿生成启动时间为 2020/3/14 16:57:14。
+     1>项目“D:\07-gitProject\cpp_projects\boostTest\log4cPlusTest\log4cPlusTest.vcxproj”在节点 2 上(Build 个目标)。
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\07-gitProject\cpp_projects\boostTest\x64\Debug\log4cPlusTest.exe" /INCREMENTAL /NOLOGO log4cplusUD.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\07-gitProject\cpp_projects\boostTest\x64\Debug\log4cPlusTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\07-gitProject\cpp_projects\boostTest\x64\Debug\log4cPlusTest.lib" /MACHINE:X64 x64\Debug\log4cPlusTest.obj
+         x64\Debug\stdafx.obj
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "public: void __cdecl log4cplus::helpers::SharedObject::addReference(void)const " (?addReference@SharedObject@helpers@log4cplus@@QEBAXXZ)，该符号在函数 "private: void __cdecl log4cplus::helpers::SharedObjectPtr<class log4cplus::Appender>::addref(void)const " (?addref@?$SharedObjectPtr@VAppender@log4cplus@@@helpers@log4cplus@@AEBAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "public: void __cdecl log4cplus::helpers::SharedObject::removeReference(void)const " (?removeReference@SharedObject@helpers@log4cplus@@QEBAXXZ)，该符号在函数 "public: __cdecl log4cplus::helpers::SharedObjectPtr<class log4cplus::Appender>::~SharedObjectPtr<class log4cplus::Appender>(void)" (??1?$SharedObjectPtr@VAppender@log4cplus@@@helpers@log4cplus@@QEAA@XZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "public: static class log4cplus::Logger __cdecl log4cplus::Logger::getInstance(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?getInstance@Logger@log4cplus@@SA?AV12@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "public: bool __cdecl log4cplus::Logger::isEnabledFor(int)const " (?isEnabledFor@Logger@log4cplus@@QEBA_NH@Z)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "public: virtual void __cdecl log4cplus::Logger::addAppender(class log4cplus::helpers::SharedObjectPtr<class log4cplus::Appender>)" (?addAppender@Logger@log4cplus@@UEAAXV?$SharedObjectPtr@VAppender@log4cplus@@@helpers@2@@Z)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "public: virtual __cdecl log4cplus::Logger::~Logger(void)" (??1Logger@log4cplus@@UEAA@XZ)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "public: __cdecl log4cplus::ConsoleAppender::ConsoleAppender(bool,bool)" (??0ConsoleAppender@log4cplus@@QEAA@_N0@Z)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "class std::basic_ostringstream<char,struct std::char_traits<char>,class std::allocator<char> > & __cdecl log4cplus::detail::get_macro_body_oss(void)" (?get_macro_body_oss@detail@log4cplus@@YAAEAV?$basic_ostringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>log4cPlusTest.obj : error LNK2019: 无法解析的外部符号 "void __cdecl log4cplus::detail::macro_forced_log(class log4cplus::Logger const &,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,char const *,int,char const *)" (?macro_forced_log@detail@log4cplus@@YAXAEBVLogger@2@HAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBDH2@Z)，该符号在函数 "void __cdecl test_log4cplus(void)" (?test_log4cplus@@YAXXZ) 中被引用
+     1>D:\software\34-log4cplus\buildX86\src\Debug\log4cplusUD.lib : warning LNK4272: 库计算机类型“X86”与目标计算机类型“x64”冲突
+     1>D:\07-gitProject\cpp_projects\boostTest\x64\Debug\log4cPlusTest.exe : fatal error LNK1120: 9 个无法解析的外部命令
+     1>已完成生成项目“D:\07-gitProject\cpp_projects\boostTest\log4cPlusTest\log4cPlusTest.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.56
