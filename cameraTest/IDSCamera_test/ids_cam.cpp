@@ -569,10 +569,10 @@ bool IDS_Cam::OpenCameraforLoadPara()
 	return false;
 }
 
-bool IDS_Cam::LoadParameter()
+bool IDS_Cam::LoadParameter(std::string path)
 {
-	INT nRet = is_ParameterSet(m_hCam, IS_PARAMETERSET_CMD_LOAD_FILE, L"CameraConfig_shanggai.ini", NULL);
-	//INT nRet = is_ParameterSet(m_hCam, IS_PARAMETERSET_CMD_LOAD_FILE, L"D:\\CameraConfig\\1.ini", NULL);
+	INT nRet = is_ParameterSet(m_hCam, IS_PARAMETERSET_CMD_LOAD_FILE, (void*)path.c_str(), NULL);
+	//INT nRet = is_ParameterSet(m_hCam, IS_PARAMETERSET_CMD_LOAD_FILE, L"test.ini", NULL);
 
 	if (nRet != IS_SUCCESS)
 	{
@@ -748,4 +748,47 @@ bool IDS_Cam::GetCurrentExposure(double &currentExposure)
 	int error = is_Exposure(m_hCam, IS_EXPOSURE_CMD_GET_EXPOSURE, (void*)&m_CurExp, sizeof(m_CurExp));
 	currentExposure = m_CurExp;
 	return error == IS_SUCCESS;
+}
+
+void IDS_Cam::EnableAllEvent() {
+	
+	EvEnumerate();
+	for (int i = 0; i < MAX_EV; i++)
+	{
+		m_hEvent[i] = CreateEvent(NULL, FALSE, FALSE, NULL);
+		m_Ret = is_InitEvent(m_hCam, m_hEvent[i], m_nEvUI[i]);
+		m_Ret = is_EnableEvent(m_hCam, m_nEvUI[i]);
+	}
+}
+void IDS_Cam::DisableAllEvent() {
+
+	EvEnumerate();
+	for (int i = 0; i < MAX_EV; i++)
+	{
+		m_hEvent[i] = CreateEvent(NULL, FALSE, FALSE, NULL);
+		m_Ret = is_InitEvent(m_hCam, m_hEvent[i], m_nEvUI[i]);
+		m_Ret = is_DisableEvent(m_hCam, m_nEvUI[i]);
+		m_Ret = is_ExitEvent(m_hCam, m_nEvUI[i]);
+		CloseHandle(m_hEvent[i]);
+	}
+}
+
+void IDS_Cam::StartLive()
+{
+	is_CaptureVideo(m_hCam, IS_DONT_WAIT);
+
+}
+void IDS_Cam::EvEnumerate()
+{
+	m_nEvUI[0] = IS_SET_EVENT_FRAME;
+	m_nEvUI[1] = IS_SET_EVENT_EXTTRIG;
+	m_nEvUI[2] = IS_SET_EVENT_VSYNC;
+	m_nEvUI[3] = IS_SET_EVENT_SEQ;
+	m_nEvUI[4] = IS_SET_EVENT_CAPTURE_STATUS;
+	m_nEvUI[5] = IS_SET_EVENT_DEVICE_RECONNECTED;
+	m_nEvUI[6] = IS_SET_EVENT_MEMORY_MODE_FINISH;
+	m_nEvUI[7] = IS_SET_EVENT_REMOVE;
+	m_nEvUI[8] = IS_SET_EVENT_REMOVAL;
+	m_nEvUI[9] = IS_SET_EVENT_NEW_DEVICE;
+	m_nEvUI[10] = IS_SET_EVENT_CONNECTIONSPEED_CHANGED;
 }

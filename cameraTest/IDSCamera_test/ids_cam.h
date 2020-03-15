@@ -3,8 +3,10 @@
 #include "uEye.h"
 #include "opencv2/opencv.hpp"
 #include "uEye_tools.h"
+#include "string.h"
 
 #define MAXCAMERA 4 
+#define MAX_EV 11
 class IDS_Cam
 {
 public:
@@ -56,7 +58,7 @@ public:
 	double GetGamma();
 	//
 	bool OpenCameraforLoadPara();
-	bool LoadParameter();
+	bool LoadParameter(std::string path);
 	
 	bool isGetCameraList();
 	bool saveParametertoCamera();
@@ -64,6 +66,12 @@ public:
 	bool stopSnap();
 	bool getCurrentFPS(double &NEWFPS);
 	bool GetCurrentExposure(double &currentExposure);
+
+	void EnableAllEvent();
+	void DisableAllEvent();
+	void StartLive();
+	void EvEnumerate();
+
 	int numSelect;
 	HIDS    m_hCam;
 	
@@ -71,8 +79,9 @@ public:
 	INT		m_lMemoryId ;	// grabber memory - buffer ID
 	char*	m_ImageMemory ;  // grabber memory - pointer to buffer
 	int m_aviId;
-	HANDLE m_hEvent;
+	HANDLE m_hEvent[MAX_EV];
 	UEYE_CAMERA_LIST  *pucl;
+	INT m_nEvUI[MAX_EV];
 
 private:
 	int InitCamera(HIDS *hCam, HWND hWnd);

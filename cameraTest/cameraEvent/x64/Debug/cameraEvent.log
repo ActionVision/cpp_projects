@@ -1,0 +1,13 @@
+﻿生成启动时间为 2020/3/15 18:38:16。
+     1>项目“D:\07-gitProject\cpp_projects\cameraTest\cameraEvent\cameraEvent.vcxproj”在节点 4 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt cameraEvent.cpp stdafx.cpp
+         stdafx.cpp
+         cameraEvent.cpp
+     1>d:\07-gitproject\cpp_projects\cameratest\cameraevent\cameraevent.cpp(5): fatal error C1083: 无法打开包括文件: “pylon/PylonIncludes.h”: No such file or directory
+         正在生成代码...
+     1>已完成生成项目“D:\07-gitProject\cpp_projects\cameraTest\cameraEvent\cameraEvent.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:06.84
