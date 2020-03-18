@@ -300,8 +300,74 @@ void test_filter()
 	imshow("filterMat4", filterMat4);
 	waitKey(0);
 }
+//test ok
+void ImageHistogramEqualation( )
+{
+	Mat image = imread("modules_08.png", 1);
+	printf("channel = %d\n", image.channels());
+	vector<Mat>channelImage;
+	split(image, channelImage);
 
+	equalizeHist(channelImage[0], channelImage[0]);
+	equalizeHist(channelImage[1], channelImage[1]);
+	equalizeHist(channelImage[2], channelImage[2]);
 
+	Mat writeImage;
+	merge(channelImage, writeImage);
+	imwrite("module_08_opencv.png", writeImage);
+}
+ 
+void minMaxGray(const Mat image, int percent, int &maxValue, int &minValue)
+{
+	percent = percent > 50 ? 50 : percent;//忽略的百分比最大为50%
+	int histSize = 256;//bin数目
+	float range[] = { 0, 255 };//灰度范围
+	const float* histRange = { range };
+	Mat hist;
+	calcHist(&image, 1, 0, Mat(), hist, 1, &histSize, &histRange, true, false);// 计算直方图:
+
+	float totalPix = image.rows*image.cols;//计算图像的总像素数目
+	float ignorePixMax, ignorePixMin;
+	ignorePixMax = ignorePixMin = round(totalPix*percent / 100);//计算忽略的最大值最小值像素数目
+	bool maxFlag = false, minFlag = false;//最大最小值遍历结束标志位
+	maxValue = 255, minValue = 0;//计算出的最大最小灰度值
+	for (int i = 0; i < histSize; i++)
+	{
+		//遍历所有bin，即灰度等级
+		if (maxFlag == false && ignorePixMax - hist.at<float>(255 - i) >= 0)
+		{
+			//如果忽略的像素数超过当前bin中的像素数目，则最大灰度值向下递减一个灰度值
+			ignorePixMax = ignorePixMax - hist.at<float>(255 - i);
+			maxValue = 255 - i - 1;
+		}
+		else
+		{
+			maxFlag = true;//找到最大值，标志位置ture
+		}
+
+		if (minFlag == false && ignorePixMin - hist.at<float>(i) >= 0)
+		{
+			ignorePixMin = ignorePixMin - hist.at<float>(i);
+			minValue = i + 1;
+		}
+		else
+		{
+			minFlag = true;//找到最小值，标志位置ture
+		}
+		if (maxFlag&&minFlag)
+		{
+			break;//找到最大最小值，跳出循环
+		}
+	}
+}
+//test ok
+void test_minMaxGray()
+{
+	Mat image = imread("modules_08_scale.png", 0);
+	int maxValue = 0;
+	int minValue = 0;
+	minMaxGray(image, 10, maxValue, minValue);
+}
 int main()
 {
 	//test_faceDetect();
@@ -309,7 +375,9 @@ int main()
 	//test_color_detect();
 	//test_blur();
 	//test_coutour_area();
-	test_filter();
+	//test_filter();
+	//ImageHistogramEqualation();
+	test_minMaxGray();
 	return 0;
 }
 
