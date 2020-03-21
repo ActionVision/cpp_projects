@@ -1,0 +1,24 @@
+﻿生成启动时间为 2020/3/21 12:18:28。
+     1>项目“D:\07-gitProject\cpp_projects\cameraTest\QtTest\QtTest.vcxproj”在节点 2 上(Build 个目标)。
+     1>项目“D:\07-gitProject\cpp_projects\cameraTest\QtTest\QtTest.vcxproj”(1)正在节点 2 上生成“D:\07-gitProject\cpp_projects\cameraTest\QtTest\QtTest.vcxproj”(1:2) (Build 个目标)。
+     1>QtRccSetDependencies:
+         "C:\Qt\Qt5.8.0\5.8\msvc2015_64\bin\rcc.exe" --list "QtTest.qrc" > "x64\Debug\rcc_list.txt" 2> nul
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Ix64\Debug\uic /Ix64\Debug\moc /IC:\Qt\Qt5.8.0\5.8\msvc2015_64\include /IC:\Qt\Qt5.8.0\5.8\msvc2015_64\include\QtWidgets /IC:\Qt\Qt5.8.0\5.8\msvc2015_64\include\QtGui /IC:\Qt\Qt5.8.0\5.8\msvc2015_64\include\QtANGLE /IC:\Qt\Qt5.8.0\5.8\msvc2015_64\include\QtCore /I"C:\Qt\Qt5.8.0\5.8\msvc2015_64\mkspecs\win32-msvc2015" /Ix64\Debug\moc /Ix64\Debug\uic /Zi /nologo /W1 /WX- /MP /Od /D UNICODE /D WIN32 /D WIN64 /D QT_WIDGETS_LIB /D QT_GUI_LIB /D QT_CORE_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt QThreadWork.cpp
+         QThreadWork.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\07-gitProject\cpp_projects\cameraTest\x64\Debug\\QtTest.exe" /NOLOGO /LIBPATH:C:\Qt\Qt5.8.0\5.8\msvc2015_64\lib /LIBPATH:C:\utils\my_sql\my_sql\lib /LIBPATH:C:\utils\postgresql\pgsql\lib C:\Qt\Qt5.8.0\5.8\msvc2015_64\lib\qtmaind.lib shell32.lib C:\Qt\Qt5.8.0\5.8\msvc2015_64\lib\Qt5Widgetsd.lib C:\Qt\Qt5.8.0\5.8\msvc2015_64\lib\Qt5Guid.lib C:\Qt\Qt5.8.0\5.8\msvc2015_64\lib\Qt5Cored.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\07-gitProject\cpp_projects\cameraTest\x64\Debug\QtTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\07-gitProject\cpp_projects\cameraTest\x64\Debug\QtTest.lib" /MACHINE:X64 x64\Debug\Cmessagebox.obj
+         x64\Debug\main.obj
+         x64\Debug\QThreadWork.obj
+         x64\Debug\QtTest.obj
+         x64\Debug\qrc_QtTest.obj
+         x64\Debug\moc_QtTest.obj
+         x64\Debug\moc_QThreadWork.obj
+         x64\Debug\moc_Cmessagebox.obj
+         QtTest.vcxproj -> D:\07-gitProject\cpp_projects\cameraTest\x64\Debug\QtTest.exe
+     1>已完成生成项目“D:\07-gitProject\cpp_projects\cameraTest\QtTest\QtTest.vcxproj”(Build 个目标)的操作。
+     1>已完成生成项目“D:\07-gitProject\cpp_projects\cameraTest\QtTest\QtTest.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:08.19
