@@ -37,12 +37,18 @@
     <ClCompile Include="DlgMatchShape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mypaint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtProject.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="DlgMatchShape.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="mypaint.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

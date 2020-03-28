@@ -5,6 +5,7 @@
 #include <qstring.h>
 #include "ThreadWork.h"
 #include "DlgMatchShape.h"
+#include "mypaint.h"
 
 class QtProject : public QMainWindow
 {
@@ -24,6 +25,7 @@ private:
 	MyStruct m_info;
 	void test_DlgMatchShape();
 	DlgMatchShape* m_DlgMatchShape;
+	MyPaint*         m_myPaint;
 
 signals:
 	void signalMystruct(QString str);

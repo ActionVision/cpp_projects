@@ -6,7 +6,8 @@ QtProject::QtProject(QWidget *parent)
 	ui.setupUi(this);
 	
 	test_DlgMatchShape();
-
+	m_myPaint = new MyPaint();
+	m_myPaint->show();
 	//ui.label->setStyleSheet("background-color:green");
 	return;
 
