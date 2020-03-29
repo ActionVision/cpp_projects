@@ -15,8 +15,8 @@ DlgMatchShape::DlgMatchShape(QWidget *parent)
 	
 	
 	mPix = QPixmap(w, h);
-	//mPix.fill(Qt::white);
 	bool ret = mPix.load("D:\\modules_08.png");
+	mPix_origin = mPix;
 
 	//ui.label_Image->setStyleSheet("background-color:green");
 	ui.label_Image->installEventFilter(this);
@@ -130,21 +130,28 @@ void DlgMatchShape::draw()
 	QPen pen(Qt::green, 2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
 	painter.setPen(pen);
 	painter.setBrush(Qt::NoBrush);
-	//QPixmap pix = mPix;
 	
 	painter.drawPixmap(0, 0, mPix);
-	painter.drawRect(mRect);
-	painter.drawLine(mLine);
+	if (selectedTool == 1)
+	{
+		painter.drawRect(mRect);
+	}
+	if (selectedTool == 2)
+	{
+		painter.drawLine(mLine);
+	}
 }
 
 void DlgMatchShape::on_btnLine_clicked()
 {
 	selectedTool = 2;
+	update();
 }
 
 void DlgMatchShape::on_btnRect_clicked()
 {
 	selectedTool = 1;
+	update();
 }
 
 void DlgMatchShape::on_btnClearWindow()
@@ -164,12 +171,15 @@ void DlgMatchShape::on_btnOpenImage()
 	QString picPath = QFileDialog::getOpenFileName(this, tr("打开"), "", "Image Files(*.jpg *.png *.bmp)");
 	if (!picPath.isEmpty())//用户选择了文件
 	{
-		bool ret = mPix.load(picPath);
+		bool ret = mPix_origin.load(picPath);
 		if (!ret)
 		{
 			qDebug() << "load image fail!!!!";
 			return;
 		}
+		//mPix = mPix.scaled(ui.label_Image->size());//刚打开新的图片和窗体需要适应
+		mPix = mPix_origin;
+		resizeEvent(NULL);
 		qDebug() << "load image success";
 		_openflag = true;//设置文件打开标志
 		update();//触发窗体重绘，将图片画到窗体
@@ -180,5 +190,37 @@ void DlgMatchShape::on_btnOpenImage()
 
 void DlgMatchShape::resizeEvent(QResizeEvent *event)
 {
-	  mPix.scaled(ui.label_Image->size());
+	double originW = mPix.size().width();
+	double originH = mPix.size().height();
+	double originLeftX = mRect.topLeft().x();
+	double originLeftY = mRect.topLeft().y();
+	double originRightX = mRect.bottomRight().x();
+	double originRightY = mRect.bottomRight().y();
+
+	 mPix= mPix_origin.scaled(ui.label_Image->size());//一定要返回，不然无法改变大小；
+	  qDebug() << "ui.label_Image:" << ui.label_Image->size().width() << ";" << ui.label_Image->size().height();
+	  qDebug() << "mPix:" << mPix.size().width() << ";"<<mPix.size().height();
+	  //窗体缩放时，必须也要考虑绘图缩放，
+	  
+	  double newW = mPix.size().width();
+	  double newH = mPix.size().height();
+
+	  double rationX = newW/ originW;
+	  double rationY = newH / originH;
+
+	  int newPosLeftX= originLeftX* rationX;
+	  int newPosLeftY = originLeftY* rationY;
+	  mRect.setTopLeft(QPoint(newPosLeftX, newPosLeftY));
+		
+	  int newPosRightX = originRightX* rationX;
+	  int newPosRightY = originRightY* rationY;
+	  mRect.setBottomRight(QPoint(newPosRightX, newPosRightY));
+	  
+	  int dx1 = newPosLeftX - originLeftX;
+	  int dy1 = newPosLeftY - originLeftY;
+	  int dx2 = newPosRightX - originRightX;
+	  int dy2 = newPosRightY - originRightY;
+	  mRect.adjusted(dx1, dy1, dx2, dy2);
+	 
+	  update();
 }

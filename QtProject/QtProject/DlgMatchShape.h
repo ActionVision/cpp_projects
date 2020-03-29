@@ -38,6 +38,7 @@ private:
 	 
 	QPainter painter;
 	QPixmap mPix;
+	QPixmap mPix_origin;
 	QLine mLine;
 	QRect mRect;
 	bool _openflag = false;
