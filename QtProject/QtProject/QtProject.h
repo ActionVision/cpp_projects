@@ -6,6 +6,9 @@
 #include "ThreadWork.h"
 #include "DlgMatchShape.h"
 #include "mypaint.h"
+#include <qevent.h>
+#include <QDrag>
+#include <QMimeData>
 
 class QtProject : public QMainWindow
 {
@@ -19,6 +22,12 @@ public:
 protected:
 	bool eventFilter(QObject *watched, QEvent *event);
 
+protected:
+	void dragEnterEvent(QDragEnterEvent *event);
+	void dragMoveEvent(QDragMoveEvent *event);
+	void dropEvent(QDropEvent *event);
+	void mousePressEvent(QMouseEvent *event);
+	void mouseMoveEvent(QMouseEvent *event);
 
 private:
 	Ui::QtProjectClass ui;
@@ -26,6 +35,8 @@ private:
 	void test_DlgMatchShape();
 	DlgMatchShape* m_DlgMatchShape;
 	MyPaint*         m_myPaint;
+	QPoint mStartPoint;
+	QHBoxLayout  *m_HBox;
 
 signals:
 	void signalMystruct(QString str);

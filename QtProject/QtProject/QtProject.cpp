@@ -77,7 +77,30 @@ void QtProject::showDock(const QList<int> &index)
 	}
 }
 
+void QtProject::mousePressEvent(QMouseEvent *event)
+{
+	
+}
 
+void QtProject::mouseMoveEvent(QMouseEvent *event)
+{
+
+}
+
+void QtProject::dragEnterEvent(QDragEnterEvent *event)
+{
+	
+}
+
+void QtProject::dragMoveEvent(QDragMoveEvent *event)
+{
+	
+}
+
+void QtProject::dropEvent(QDropEvent *event)
+{
+
+}
 
 
 
