@@ -5,12 +5,29 @@ QtProject::QtProject(QWidget *parent)
 {
 	ui.setupUi(this);
 	
-	test_DlgMatchShape();
-	m_myPaint = new MyPaint();
-	m_myPaint->show();
+	//test_DlgMatchShape();
+	//m_myPaint = new MyPaint();
+	//m_myPaint->show();
+	//return;
 	//ui.label->setStyleSheet("background-color:green");
-	return;
+	QWidget* p = takeCentralWidget();
+	if (p)
+		delete p;
+	//允许嵌套dock
+	setDockNestingEnabled(true);
+	//记录所有的dock指针
+	//m_docks.append(ui.dockWidget_A);
+	//m_docks.append(ui.dockWidget_B);
 
+	//showDock(m_docks);
+	splitDockWidget(ui.dockWidget_D, ui.dockWidget_E, Qt::Horizontal);
+	splitDockWidget(ui.dockWidget_E, ui.dockWidget_A, Qt::Horizontal);
+	splitDockWidget(ui.dockWidget_A, ui.dockWidget_C, Qt::Horizontal);
+	splitDockWidget(ui.dockWidget_D, ui.dockWidget_B, Qt::Vertical);
+	return;
+	
+	
+	
 	qRegisterMetaType<MyStruct>("MyStruct");
 	m_info.age = 10;
 	m_info.name = "hhkk";
@@ -20,6 +37,50 @@ QtProject::QtProject(QWidget *parent)
 	r=connect(this, SIGNAL(signalMystruct(QString)), m_ThreadWork, SLOT(receive_msg(QString)),Qt::DirectConnection);
 	m_ThreadWork->start();
 }
+void  QtProject::dockA()
+{
+	qDebug() << "A MOVE";
+	//addDockWidget(Qt::LeftDockWidgetArea, ui.dockWidget_A);
+	//addDockWidget(Qt::RightDockWidgetArea, ui.dockWidget_B);
+	//splitDockWidget(ui.dockWidget_A, ui.dockWidget_B, Qt::Horizontal);
+
+}
+void  QtProject::dockB()
+{
+	qDebug() << "B MOVE";
+	//addDockWidget(Qt::TopDockWidgetArea, ui.dockWidget_A);
+	//addDockWidget(Qt::BottomDockWidgetArea, ui.dockWidget_B);
+}
+void QtProject::removeAllDock()
+{
+	for (int i = 0;i<2;++i)
+	{
+		removeDockWidget(m_docks[i]);
+	}
+}
+
+void QtProject::showDock(const QList<int> &index)
+{
+	if (index.isEmpty())
+	{
+		for (int i = 0;i<2;++i)
+		{
+			m_docks[i]->show();
+		}
+	}
+	else
+	{
+		foreach(int i, index) 
+		{
+			m_docks[i]->show();
+		}
+	}
+}
+
+
+
+
+
 void QtProject::sendMsg()
 {
 	m_info.age = m_info.age + 1;

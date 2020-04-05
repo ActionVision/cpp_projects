@@ -6,49 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>521</width>
+    <height>740</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>QtProject</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="Btn_SendMessage">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>521</width>
      <height>23</height>
     </rect>
    </property>
@@ -62,10 +33,258 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidget_A">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <property name="windowTitle">
+    <string>流程栏</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_10">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget">
+       <column>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>标签栏</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_B">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>数据栏</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_11">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="Btn_SendMessage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>数据栏</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPlainTextEdit" name="plainTextEdit">
+       <property name="plainText">
+        <string>数据栏
+</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_C">
+   <property name="windowTitle">
+    <string>工具栏</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_14">
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget_2">
+       <column>
+        <property name="text">
+         <string>工具</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>匹配</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>基于形状</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>基于NCC</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>测量</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>测量直线</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>测量圆</string>
+         </property>
+        </item>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPlainTextEdit" name="plainTextEdit_2">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_D">
+   <property name="windowTitle">
+    <string>日志栏</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_15">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QPlainTextEdit" name="plainTextEdit_3">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_E">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>图片窗体</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_12">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>400</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
   <include location="QtProject.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>dockWidget_A</sender>
+   <signal>dockLocationChanged(Qt::DockWidgetArea)</signal>
+   <receiver>QtProjectClass</receiver>
+   <slot>dockA()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dockWidget_B</sender>
+   <signal>dockLocationChanged(Qt::DockWidgetArea)</signal>
+   <receiver>QtProjectClass</receiver>
+   <slot>dockB()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>512</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>dockA()</slot>
+  <slot>dockB()</slot>
+ </slots>
 </ui>

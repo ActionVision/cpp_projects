@@ -31,4 +31,14 @@ signals:
 	void signalMystruct(QString str);
 private slots:
 void   sendMsg();
+void  dockA();
+void  dockB();
+
+public:
+void removeAllDock();
+void showDock(const QList<int>& index = QList<int>());
+ 
+private :
+	QList<QDockWidget*> m_docks;
+
 };
