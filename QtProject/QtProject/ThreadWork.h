@@ -1,6 +1,6 @@
 #pragma once
 #include <qthread.h>
-//#include "QtProject.h"
+ 
 #include <qdebug.h>
 #include <qmetatype.h>
 struct MyStruct
@@ -12,10 +12,14 @@ Q_DECLARE_METATYPE(MyStruct);
 
 class ThreadWork :public QThread
 {
+	Q_OBJECT
 public :
 	ThreadWork();
 	~ThreadWork();
+protected:
 	void run();
-public slots:
-	void receive_msg(QString str);
+signals:
+	void send_msg(MyStruct str);
+	private slots:
+	void receive_msg(MyStruct str);
 };

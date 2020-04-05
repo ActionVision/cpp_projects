@@ -51,6 +51,9 @@
     <QtMoc Include="mypaint.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ThreadWork.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="QtProject.ui">
@@ -64,10 +67,5 @@
     <QtRcc Include="QtProject.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ThreadWork.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

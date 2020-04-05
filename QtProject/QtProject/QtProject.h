@@ -39,9 +39,10 @@ private:
 	QHBoxLayout  *m_HBox;
 
 signals:
-	void signalMystruct(QString str);
+	void signalMystruct(MyStruct str);
 private slots:
 void   sendMsg();
+
 void  dockA();
 void  dockB();
 
@@ -49,6 +50,10 @@ public:
 void removeAllDock();
 void showDock(const QList<int>& index = QList<int>());
  
+private slots:
+
+void receive_msg1(MyStruct STR);
+
 private :
 	QList<QDockWidget*> m_docks;
 

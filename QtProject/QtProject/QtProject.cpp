@@ -24,7 +24,7 @@ QtProject::QtProject(QWidget *parent)
 	splitDockWidget(ui.dockWidget_E, ui.dockWidget_A, Qt::Horizontal);
 	splitDockWidget(ui.dockWidget_A, ui.dockWidget_C, Qt::Horizontal);
 	splitDockWidget(ui.dockWidget_D, ui.dockWidget_B, Qt::Vertical);
-	return;
+	
 	
 	
 	
@@ -34,8 +34,11 @@ QtProject::QtProject(QWidget *parent)
 	m_ThreadWork = new ThreadWork();
 	
 	bool r=connect(ui.Btn_SendMessage, SIGNAL(clicked(bool)), this, SLOT(sendMsg()));
-	r=connect(this, SIGNAL(signalMystruct(QString)), m_ThreadWork, SLOT(receive_msg(QString)),Qt::DirectConnection);
+	bool ret = connect(this, SIGNAL(signalMystruct(MyStruct)), m_ThreadWork, SLOT(receive_msg(MyStruct)));//,Qt::DirectConnection;
+	ret = connect(m_ThreadWork, SIGNAL(send_msg(MyStruct)), this, SLOT(receive_msg1(MyStruct)));
+ 
 	m_ThreadWork->start();
+	return;
 }
 void  QtProject::dockA()
 {
@@ -107,7 +110,11 @@ void QtProject::dropEvent(QDropEvent *event)
 void QtProject::sendMsg()
 {
 	m_info.age = m_info.age + 1;
-	//emit signalMystruct(m_info);
+	emit signalMystruct(m_info);
+}
+void QtProject::receive_msg1(MyStruct STR)
+{
+	qDebug() << "main ui get:"<<STR.age<<QString::number(STR.age);
 }
 void QtProject::test_DlgMatchShape()
 {
