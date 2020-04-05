@@ -141,6 +141,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mypaint.cpp" />
     <ClCompile Include="QtProject.cpp" />
+    <ClCompile Include="ThreadSocket.cpp" />
     <ClCompile Include="ThreadWork.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,9 @@
     <QtMoc Include="DlgMatchShape.h" />
     <QtMoc Include="mypaint.h" />
     <QtMoc Include="ThreadWork.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ThreadSocket.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

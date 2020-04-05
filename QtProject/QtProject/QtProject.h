@@ -9,6 +9,7 @@
 #include <qevent.h>
 #include <QDrag>
 #include <QMimeData>
+#include "ThreadSocket.h"
 
 class QtProject : public QMainWindow
 {
@@ -16,7 +17,8 @@ class QtProject : public QMainWindow
 
 public:
 	QtProject(QWidget *parent = Q_NULLPTR);
-	ThreadWork *m_ThreadWork;
+	ThreadWork *m_ThreadWork[3];
+	ThreadSocket *m_ThreadSocket[3];
 	void drawRedCircle();
 
 protected:

@@ -31,13 +31,17 @@ QtProject::QtProject(QWidget *parent)
 	qRegisterMetaType<MyStruct>("MyStruct");
 	m_info.age = 10;
 	m_info.name = "hhkk";
-	m_ThreadWork = new ThreadWork();
+	for (int  i = 0; i < 3; i++)
+	{
+		m_ThreadWork[i] = new ThreadWork(i+1);
+		m_ThreadSocket[i] = new ThreadSocket(i+1);
+		connect(m_ThreadSocket[i], SIGNAL(send(MyStruct)), m_ThreadWork[i], SLOT(receive_msg(MyStruct)));
+		m_ThreadWork[i]->start();
+		m_ThreadSocket[i]->start();
+	}
 	
-	bool r=connect(ui.Btn_SendMessage, SIGNAL(clicked(bool)), this, SLOT(sendMsg()));
-	bool ret = connect(this, SIGNAL(signalMystruct(MyStruct)), m_ThreadWork, SLOT(receive_msg(MyStruct)));//,Qt::DirectConnection;
-	ret = connect(m_ThreadWork, SIGNAL(send_msg(MyStruct)), this, SLOT(receive_msg1(MyStruct)));
- 
-	m_ThreadWork->start();
+	
+	 
 	return;
 }
 void  QtProject::dockA()

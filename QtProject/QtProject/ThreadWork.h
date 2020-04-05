@@ -14,12 +14,14 @@ class ThreadWork :public QThread
 {
 	Q_OBJECT
 public :
-	ThreadWork();
+	ThreadWork(int index);
 	~ThreadWork();
+ 
 protected:
 	void run();
-signals:
-	void send_msg(MyStruct str);
-	private slots:
+private slots:
 	void receive_msg(MyStruct str);
+private:
+	int m_index;
 };
+ 

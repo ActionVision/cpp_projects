@@ -40,6 +40,9 @@
     <ClCompile Include="mypaint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThreadSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtProject.h">
@@ -52,6 +55,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="ThreadWork.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ThreadSocket.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
